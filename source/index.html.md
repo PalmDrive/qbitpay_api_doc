@@ -64,7 +64,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/accessToken"
 
 Qbit Pay API 使用 [HTTP Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication) 进行认证。 将 API Key 作为 basic auth 的用户名。不需要填写密码。
 
-此外，调起的支付H5页面需要用bearer auth。先请求接口获取access token，再将access token放入到Authorization header中。
+此外，调起的支付H5页面需要用 access token。先请求接口获取access token，再将access token放在H5页面的 url 参数中`&accessToken=${token}`。
 
 # 错误
 

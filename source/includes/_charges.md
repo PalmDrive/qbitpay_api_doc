@@ -73,7 +73,7 @@ externalOrderId *REQUIRED string* | 商户系统内部订单号
 返回一个支付凭据 charge 对象。
 
 <aside class="notice">
-当用paymentPageUrl调起支付H5页面的时候，必须传带有`Bearer ${accessToken}`的Authorization header。
+当用paymentPageUrl调起支付H5页面的时候，必须把 accessToken 拼接到 url 的参数中，以`&accessToken=${accessToken}`的形式。
 </aside>
 
 ## 查询Charge对象
