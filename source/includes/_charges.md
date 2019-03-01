@@ -75,6 +75,8 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
 amount *REQUIRED string* | 支付金额，单位是美元或元，取决于currency
 currency *REQUIRED string* | 货币代码，目前填USD
 externalOrderId *REQUIRED string* | 商户系统内部订单号
+cbUrl *REQUIRED string* | Webhook 回调的接口地址
+redirectUrl *REQUIRED string* | 完成支付以后，跳转的页面
 
 ### 返回
 
