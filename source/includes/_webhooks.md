@@ -21,7 +21,9 @@
     "amount": 1000,
     "currency": "USD",
     "externalOrderId": "DTSifOuTy95ui",
-    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95"
+    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+    "cbUrl": "https://api.blockscape.co",
+    "redirectUrl": "https://qbitpay.blockscape.co"
   }
 }
 ```
@@ -69,7 +71,9 @@ data *hash* | 绑定在事件上的数据对象。
     "amount": 1000,
     "currency": "USD",
     "externalOrderId": "DTSifOuTy95ui",
-    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95"
+    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+    "cbUrl": "https://api.blockscape.co",
+    "redirectUrl": "https://qbitpay.blockscape.co"
   }
 }
 ```
@@ -107,7 +111,7 @@ sign=hash_hmac("sha256", stringSignTemp, key).toUpperCase()
 > 请求示例
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/events/test"
+curl "https://matrix-content-s.ailingual.cn/api/v1/events/test?cbUrl=https://api.blockscape.co",
   -u "my_api_key:"
 ```
 
@@ -130,11 +134,13 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/events/test"
     "amount": 1000,
     "currency": "USD",
     "externalOrderId": "DTSifOuTy95ui",
-    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95"
+    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+    "cbUrl": "https://api.blockscape.co",
+    "redirectUrl": "https://qbitpay.blockscape.co"
   }
 }
 ```
 
-Qbit Pay 提供 API 供调试 Webhooks。 请求`https://matrix-content-s.ailingual.cn/api/v1/events/test` 即可获得一个和正常回调一样的推送事件， 除了 livemode 是 false，方便用于商户的接口调试。该事件推送是一次性的，如果返回不是2xx也不会重试。
+Qbit Pay 提供 API 供调试 Webhooks。 请求`https://matrix-content-s.ailingual.cn/api/v1/events/test` 即可获得一个和正常回调一样的推送事件， 除了 livemode 是 false，方便用于商户的接口调试。该事件推送是一次性的，如果返回不是2xx也不会重试。回调地址 cbUrl 可以以参数的形式传入，如请求示例。
 
 该事件会即时以POST方式发送到商户设定的回调地址上，并会用商户的api key签名。

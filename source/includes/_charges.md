@@ -14,7 +14,9 @@
   "amount": 100,
   "currency": "USD",
   "externalOrderId": "DTSifOuTy95ui",
-  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95"
+  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
+  "cbUrl": "https://api.blockscape.co",
+  "redirectUrl": "https://qbitpay.blockscape.co",
 }
 ```
 
@@ -31,6 +33,8 @@ amount *float* | 支付金额，单位是元(美元)。
 currency *string* | 货币代码，大写字母。
 externalOrderId *string* | 商户系统内部订单号。
 paymentPageUrl *string* | 调起的H5支付页面的URL。
+cbUrl *string* | Webhook 回调的接口地址
+redirectUrl *string* | 完成支付以后，跳转的页面
 
 ## 创建Charge对象
 
@@ -42,6 +46,8 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
   -d "amount=100"
   -d "currency=USD"
   -d "externalOrderId=DTSifOuTy95ui"
+  -d "cbUrl=https://api.blockscape.co"
+  -d "redirectUrl=https://qbitpay.blockscape.co"
 ```
 
 > 返回数据
@@ -56,7 +62,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
   "amount": 100,
   "currency": "USD",
   "externalOrderId": "DTSifOuTy95ui",
-  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95"
+  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
+  "cbUrl": "https://api.blockscape.co",
+  "redirectUrl": "https://qbitpay.blockscape.co"
 }
 ```
 
@@ -97,7 +105,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
   "amount": 100,
   "currency": "USD",
   "externalOrderId": "DTSifOuTy95ui",
-  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95"
+  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
+  "cbUrl": "https://api.blockscape.co",
+  "redirectUrl": "https://qbitpay.blockscape.co"
 }
 ```
 
@@ -136,7 +146,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
       "amount": 1000,
       "currency": "USD",
       "externalOrderId": "DTSifOuTy95ui",
-      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95"
+      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+      "cbUrl": "https://api.blockscape.co",
+      "redirectUrl": "https://qbitpay.blockscape.co"
     },
     {
       "id": "OuTyTSi9i5ufD",
@@ -147,7 +159,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
       "amount": 900,
       "currency": "USD",
       "externalOrderId": "DTSifOuTy95ui",
-      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=OuTy95DTSififOuTy95"
+      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=OuTy95DTSififOuTy95",
+      "cbUrl": "https://api.blockscape.co",
+      "redirectUrl": "https://qbitpay.blockscape.co"
     },
     {
       "id": "ifDOu5uTSTy9i",
@@ -158,7 +172,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
       "amount": 950,
       "currency": "USD",
       "externalOrderId": "DTSifOuTy95ui",
-      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95"
+      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
+      "cbUrl": "https://api.blockscape.co",
+      "redirectUrl": "https://qbitpay.blockscape.co"
     }
   ]
 }
@@ -198,7 +214,9 @@ externalOrderId *optional string* | 商户系统内部订单号
     "amount": 1000,
     "currency": "USD",
     "externalOrderId": "DTSifOuTy95ui",
-    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95"
+    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+    "cbUrl": "https://api.blockscape.co",
+    "redirectUrl": "https://qbitpay.blockscape.co"
   }
 }
 ```
