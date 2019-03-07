@@ -29,7 +29,7 @@ object *string* | 值为 "charge"。
 createdAt *string* | 支付创建时的时间戳, 时区为UTC。
 paid *boolean* | 是否已付款。
 status *string* | 支付状态，有pending, buyerPaid, sellerConfirmed, closed, cancelled, dispute。
-amount *float* | 支付金额，单位是元(美元)。
+amount *float* | 以相应currency计算的支付金额。
 currency *string* | 货币代码，大写字母。
 externalOrderId *string* | 商户系统内部订单号。
 paymentPageUrl *string* | 调起的H5支付页面的URL。
@@ -73,7 +73,9 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
 请求参数	|   描述
 -------- | --------
 amount *REQUIRED string* | 支付金额，单位是美元或元，取决于currency
-currency *REQUIRED string* | 货币代码，目前填USD
+currency *REQUIRED string* | 结算货币代码，可填USD，USDT
+baseCurrency *OPTIONAL string* | 默认BTC，要换取的数字货币，可填BTC, USDT
+quoteCurrency *OPTIONAL string* | 默认CNY，用户用于换取baseCurrency的货币，可填CNY，USD。近期将会支持更多货币。
 externalOrderId *REQUIRED string* | 商户系统内部订单号
 cbUrl *REQUIRED string* | Webhook 回调的接口地址
 redirectUrl *REQUIRED string* | 完成支付以后，跳转的页面
