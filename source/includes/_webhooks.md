@@ -78,12 +78,18 @@ data *hash* | 绑定在事件上的数据对象。
 }
 ```
 
-> 如果用api key "T9uTy95uSifOOuTy" 签名，获得 "A06B45D68F34D56137409671E6448949"
+> 示例中的数据变成的字符串是：createdAt=2019-02-25T16:13:12.278Z&data={"id":"5","o
+bject":"charge","createdAt":"2019-02-25T16:13:12.278Z","paid":false,"status":"pending","amount":1000,"currency":"
+USD","externalOrderId":"DTSifOuTy95ui","paymentPageUrl":"https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=D
+TSifOuTy95ifOuTy95","cbUrl":"https://api.blockscape.co","redirectUrl":"https://qbitpay.blockscape.co"}&id=fDOuTy9
+5uSiTi&livemode=true&object=event&pendingWebhooks=0&type=charge.succeeded
+
+> 如果用api key "T9uTy95uSifOOuTy" 签名，获得 "EE53810FF1341779F2FF25989A67DCFC"
 
 > 签名生成第二步示例
 
 ```javascript
-stringSignTemp=stringA+"&key=192006250b4c09247ec02edce69f6a2d"
+stringSignTemp=stringA+"&key=T9uTy95uSifOOuTy"
 //注：key为商户平台设置的api key
 
 sign=MD5(stringSignTemp).toUpperCase()
