@@ -68,17 +68,18 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
 }
 ```
 
-发起一次支付请求时需要创建一个新的 charge 对象。当支付成功后，Qbit Pay 会发送 Webhooks 通知。
+发起一次支付请求时需要创建一个新的 charge 对象。数据放在请求body里面，data type是json。当支付成功后，Qbit Pay 会发送 Webhooks 通知。
 
 请求参数	|   描述
 -------- | --------
 amount *REQUIRED string* | 支付金额，单位是美元或元，取决于currency
 currency *REQUIRED string* | 结算货币代码，可填USD，USDT
-baseCurrency *OPTIONAL string* | 默认BTC，要换取的数字货币，可填BTC, USDT
-quoteCurrency *OPTIONAL string* | 默认CNY，用户用于换取baseCurrency的货币，可填CNY，USD, PHP。近期将会支持更多货币。
 externalOrderId *REQUIRED string* | 商户系统内部订单号
 cbUrl *REQUIRED string* | Webhook 回调的接口地址
 redirectUrl *REQUIRED string* | 完成支付以后，跳转的页面
+baseCurrency *OPTIONAL string* | 默认BTC，要换取的数字货币，可填BTC, USDT
+quoteCurrency *OPTIONAL string* | 默认CNY，用户用于换取baseCurrency的货币，可填CNY，USD, PHP。近期将会支持更多货币。
+paymentType *OPTIONAL string* | 指定一种支付方式，CNY可选Alipay, Yunshanfu, bankAccount, USD可选PayPal, bankAccount, PHP可选Coins.ph, GCash
 
 ### 返回
 
