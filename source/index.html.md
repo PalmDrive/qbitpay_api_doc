@@ -9,6 +9,11 @@ toc_footers:
 
 includes:
   - charges
+  - paymentMethods
+  - accounts
+  - balances
+  - balanceTransactions
+  - payouts
   - webhooks
 
 search: false

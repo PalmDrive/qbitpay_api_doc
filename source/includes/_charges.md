@@ -12,11 +12,26 @@
   "paid": false,
   "status": "pending",
   "amount": 100,
+  "totalCost": 676,
+  "price": 38737.7,
+  "baseAmount": 0.017451,
   "currency": "USD",
+  "quoteCurrency": "CNY",
+  "baseCurrency": "BTC",
   "externalOrderId": "DTSifOuTy95ui",
   "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
   "cbUrl": "https://api.blockscape.co",
   "redirectUrl": "https://qbitpay.blockscape.co",
+  "paymentMethod": {
+    "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+    "type": "Alipay",
+    "currency": "CNY",
+    "status": "active",
+    "typeLabel": {
+      "en": "Alipay",
+      "zh": "支付宝"
+    }
+  }
 }
 ```
 
@@ -31,10 +46,15 @@ paid *boolean* | 是否已付款。
 status *string* | 支付状态，有pending, buyerPaid, sellerConfirmed, closed, cancelled, dispute。
 amount *float* | 以相应currency计算的支付金额。
 currency *string* | 货币代码，大写字母。
+baseAmount *number* | 所换取的数字货币的数量
+baseCurrency *string* | 要换取的数字货币
+totalCost *number* | 用户直接支付，用于兑换数字货币的金额
+quoteCurrency *string* | 用户用于换取baseCurrency的货币
 externalOrderId *string* | 商户系统内部订单号。
 paymentPageUrl *string* | 调起的H5支付页面的URL。
 cbUrl *string* | Webhook 回调的接口地址
 redirectUrl *string* | 完成支付以后，跳转的页面
+paymentMethod *object* | 支付方式详情，详见PaymentMethods 
 
 ## 创建Charge对象
 
