@@ -6,6 +6,7 @@
 
 ```json
 {
+  "object": "paymentMethod",
   "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
   "type": "Alipay",
   "currency": "CNY",
@@ -21,6 +22,7 @@
 
 属性	    |     描述
 --------  | -----------
+object *string* | 值为paymentMethod
 type *string* | 支付方式类型，可以是Alipay, PayPal, Yunshanfu, bankAccount, Coins.ph, GCash, wallet
 currency *string* | 支付货币
 status *string* | 状态

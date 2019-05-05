@@ -14,6 +14,7 @@
   "amount": 100,
   "totalCost": 676,
   "price": 38737.7,
+  "fee": 0,
   "baseAmount": 0.017451,
   "currency": "USD",
   "quoteCurrency": "CNY",
@@ -23,6 +24,7 @@
   "cbUrl": "https://api.blockscape.co",
   "redirectUrl": "https://qbitpay.blockscape.co",
   "paymentMethod": {
+    "object": "paymentMethod",
     "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
     "type": "Alipay",
     "currency": "CNY",
@@ -44,8 +46,10 @@ object *string* | 值为 "charge"。
 createdAt *string* | 支付创建时的时间戳, 时区为UTC。
 paid *boolean* | 是否已付款。
 status *string* | 支付状态，有pending, buyerPaid, sellerConfirmed, closed, cancelled, dispute。
-amount *float* | 以相应currency计算的支付金额。
+amount *number* | 以相应currency计算的支付金额。
 currency *string* | 货币代码，大写字母。
+price *number* | 兑换数字货币的价格，以quoteCurrency计价
+fee *number* | 手续费
 baseAmount *number* | 所换取的数字货币的数量
 baseCurrency *string* | 要换取的数字货币
 totalCost *number* | 用户直接支付，用于兑换数字货币的金额
@@ -54,7 +58,7 @@ externalOrderId *string* | 商户系统内部订单号。
 paymentPageUrl *string* | 调起的H5支付页面的URL。
 cbUrl *string* | Webhook 回调的接口地址
 redirectUrl *string* | 完成支付以后，跳转的页面
-paymentMethod *object* | 支付方式详情，详见PaymentMethods 
+paymentMethod *object* | 支付方式详情，详见PaymentMethods
 
 ## 创建Charge对象
 
@@ -140,7 +144,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
 
 请求参数	|    描述
 ---- | --------
-CHARGE_ID *REQUIRED string* | 查询的 charge 对象 id，该参数仅需要填写在请求地址内。
+CHARGE_ID *REQUIRED string* | 查询的 charge 对象 id。
 
 ### 返回
 
