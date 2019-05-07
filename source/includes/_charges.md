@@ -96,7 +96,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
 
 请求参数	|   描述
 -------- | --------
-amount *REQUIRED string* | 支付金额，单位是美元或元，取决于currency
+amount *REQUIRED number* | 支付金额，单位是美元或元，取决于currency
 currency *REQUIRED string* | 结算货币代码，可填USD，USDT
 externalOrderId *REQUIRED string* | 商户系统内部订单号
 cbUrl *REQUIRED string* | Webhook 回调的接口地址
@@ -235,17 +235,34 @@ externalOrderId *optional string* | 商户系统内部订单号
   "pendingWebhooks": 0,
   "livemode": true,
   "data": {
-    "id": "5uTSifDOuTy9i",
+    "id": "ifDOu5uTSTy9i",
     "object": "charge",
-    "createdAt": "2019-02-25T16:13:12.278Z",
+    "createdAt": "2019-02-23T16:13:12.278Z",
     "paid": false,
     "status": "pending",
-    "amount": 1000,
+    "amount": 100,
+    "totalCost": 676,
+    "price": 38737.7,
+    "fee": 0,
+    "baseAmount": 0.017451,
     "currency": "USD",
+    "quoteCurrency": "CNY",
+    "baseCurrency": "BTC",
     "externalOrderId": "DTSifOuTy95ui",
-    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
+    "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
     "cbUrl": "https://api.blockscape.co",
-    "redirectUrl": "https://qbitpay.blockscape.co"
+    "redirectUrl": "https://qbitpay.blockscape.co",
+    "paymentMethod": {
+      "object": "paymentMethod",
+      "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+      "type": "Alipay",
+      "currency": "CNY",
+      "status": "active",
+      "typeLabel": {
+        "en": "Alipay",
+        "zh": "支付宝"
+      }
+    }
   }
 }
 ```
