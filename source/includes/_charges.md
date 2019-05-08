@@ -19,6 +19,7 @@
   "currency": "USD",
   "quoteCurrency": "CNY",
   "baseCurrency": "BTC",
+  "payerName": "firtname lastname",
   "externalOrderId": "DTSifOuTy95ui",
   "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
   "cbUrl": "https://api.blockscape.co",
@@ -59,6 +60,7 @@ paymentPageUrl *string* | 调起的H5支付页面的URL。
 cbUrl *string* | Webhook 回调的接口地址
 redirectUrl *string* | 完成支付以后，跳转的页面
 paymentMethod *object* | 支付方式详情，详见PaymentMethods
+payerName *string* | 付款人的姓名，或其使用的支付方式的账户
 
 ## 创建Charge对象
 
@@ -72,6 +74,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
   -d "externalOrderId=DTSifOuTy95ui"
   -d "cbUrl=https://api.blockscape.co"
   -d "redirectUrl=https://qbitpay.blockscape.co"
+  -d "payerName=Alex"
 ```
 
 > 返回数据
@@ -84,11 +87,29 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
   "paid": false,
   "status": "pending",
   "amount": 100,
+  "totalCost": 676,
+  "price": 38737.7,
+  "fee": 0,
+  "baseAmount": 0.017451,
   "currency": "USD",
+  "quoteCurrency": "CNY",
+  "baseCurrency": "BTC",
+  "payerName": "Alex",
   "externalOrderId": "DTSifOuTy95ui",
   "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
   "cbUrl": "https://api.blockscape.co",
-  "redirectUrl": "https://qbitpay.blockscape.co"
+  "redirectUrl": "https://qbitpay.blockscape.co",
+  "paymentMethod": {
+    "object": "paymentMethod",
+    "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+    "type": "Alipay",
+    "currency": "CNY",
+    "status": "active",
+    "typeLabel": {
+      "en": "Alipay",
+      "zh": "支付宝"
+    }
+  }
 }
 ```
 
@@ -132,11 +153,29 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
   "paid": false,
   "status": "pending",
   "amount": 100,
+  "totalCost": 676,
+  "price": 38737.7,
+  "fee": 0,
+  "baseAmount": 0.017451,
   "currency": "USD",
+  "quoteCurrency": "CNY",
+  "baseCurrency": "BTC",
+  "payerName": "firtname lastname",
   "externalOrderId": "DTSifOuTy95ui",
   "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
   "cbUrl": "https://api.blockscape.co",
-  "redirectUrl": "https://qbitpay.blockscape.co"
+  "redirectUrl": "https://qbitpay.blockscape.co",
+  "paymentMethod": {
+    "object": "paymentMethod",
+    "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+    "type": "Alipay",
+    "currency": "CNY",
+    "status": "active",
+    "typeLabel": {
+      "en": "Alipay",
+      "zh": "支付宝"
+    }
+  }
 }
 ```
 
@@ -167,43 +206,35 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
   "url": "/api/v1/charges",
   "data": [
     {
-      "id": "5uTSifDOuTy9i",
-      "object": "charge",
-      "createdAt": "2019-02-25T16:13:12.278Z",
-      "paid": false,
-      "status": "pending",
-      "amount": 1000,
-      "currency": "USD",
-      "externalOrderId": "DTSifOuTy95ui",
-      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=DTSifOuTy95ifOuTy95",
-      "cbUrl": "https://api.blockscape.co",
-      "redirectUrl": "https://qbitpay.blockscape.co"
-    },
-    {
-      "id": "OuTyTSi9i5ufD",
-      "object": "charge",
-      "createdAt": "2019-02-24T16:13:12.278Z",
-      "paid": false,
-      "status": "pending",
-      "amount": 900,
-      "currency": "USD",
-      "externalOrderId": "DTSifOuTy95ui",
-      "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=OuTy95DTSififOuTy95",
-      "cbUrl": "https://api.blockscape.co",
-      "redirectUrl": "https://qbitpay.blockscape.co"
-    },
-    {
       "id": "ifDOu5uTSTy9i",
       "object": "charge",
       "createdAt": "2019-02-23T16:13:12.278Z",
-      "paid": true,
-      "status": "closed",
-      "amount": 950,
+      "paid": false,
+      "status": "pending",
+      "amount": 100,
+      "totalCost": 676,
+      "price": 38737.7,
+      "fee": 0,
+      "baseAmount": 0.017451,
       "currency": "USD",
+      "quoteCurrency": "CNY",
+      "baseCurrency": "BTC",
+      "payerName": "firtname lastname",
       "externalOrderId": "DTSifOuTy95ui",
       "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
       "cbUrl": "https://api.blockscape.co",
-      "redirectUrl": "https://qbitpay.blockscape.co"
+      "redirectUrl": "https://qbitpay.blockscape.co",
+      "paymentMethod": {
+        "object": "paymentMethod",
+        "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+        "type": "Alipay",
+        "currency": "CNY",
+        "status": "active",
+        "typeLabel": {
+          "en": "Alipay",
+          "zh": "支付宝"
+        }
+      }
     }
   ]
 }
