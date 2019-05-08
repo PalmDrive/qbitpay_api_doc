@@ -125,6 +125,7 @@ redirectUrl *REQUIRED string* | 完成支付以后，跳转的页面
 baseCurrency *OPTIONAL string* | 默认BTC，要换取的数字货币，可填BTC, USDT
 quoteCurrency *OPTIONAL string* | 默认CNY，用户用于换取baseCurrency的货币，可填CNY，USD, PHP。近期将会支持更多货币。
 paymentType *OPTIONAL string* | 指定一种支付方式，CNY可选Alipay, Yunshanfu, bankAccount, USD可选PayPal, bankAccount, PHP可选Coins.ph, GCash
+payerName *string* | 付款人的姓名，或其使用的支付方式的账户
 
 ### 返回
 
