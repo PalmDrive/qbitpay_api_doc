@@ -67,7 +67,7 @@ payerName *string* | 付款人的姓名，或其使用的支付方式的账户
 > 请求示例
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
+curl -X POST "https://matrix-content-s.ailingual.cn/api/v1/charges"
   -u "my_api_key:"
   -d "amount=100"
   -d "currency=USD"
@@ -253,6 +253,62 @@ externalOrderId *optional string* | 商户系统内部订单号
 ### 返回
 
 返回一个已存在的 charge 对象列表或者一个错误，详见 错误
+
+## 更新Charge对象
+
+> 请求示例
+
+```shell
+curl -X PUT "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
+  -u "my_api_key:"
+  -d "status=buyerPaid"
+```
+
+> 返回数据
+
+```json
+{
+  "id": "ifDOu5uTSTy9i",
+  "object": "charge",
+  "createdAt": "2019-02-23T16:13:12.278Z",
+  "paid": false,
+  "status": "buyerPaid",
+  "amount": 100,
+  "totalCost": 676,
+  "price": 38737.7,
+  "fee": 0,
+  "baseAmount": 0.017451,
+  "currency": "USD",
+  "quoteCurrency": "CNY",
+  "baseCurrency": "BTC",
+  "payerName": "firtname lastname",
+  "externalOrderId": "DTSifOuTy95ui",
+  "paymentPageUrl": "https://qbitpay.blockscape.co/?zh#/otc/payment?tradeId=uTifOuTy95DTSifOy95",
+  "cbUrl": "https://api.blockscape.co",
+  "redirectUrl": "https://qbitpay.blockscape.co",
+  "paymentMethod": {
+    "object": "paymentMethod",
+    "alipayQRCodeUrl": "https://alipay.net.com/qrcode",
+    "type": "Alipay",
+    "currency": "CNY",
+    "status": "active",
+    "typeLabel": {
+      "en": "Alipay",
+      "zh": "支付宝"
+    }
+  }
+}
+```
+
+更新已创建的 charge 对象的数据。目前仅支持将状态从pending改到buyerPaid。buyerPaid表示买家已经确认付款。用PUT方式发起请求，数据放在body里面，data type是json。
+
+请求参数	|   描述
+-------- | --------
+status *REQUIRED string* | 这里值是buyerPaid。表示买家已经确认付款
+
+### 返回
+
+返回 charge 对象。
 
 ## Charge 相关的 Event 类型
 
