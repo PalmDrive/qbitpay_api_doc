@@ -34,7 +34,8 @@
       "en": "Alipay",
       "zh": "支付宝"
     }
-  }
+  },
+  "expiresAt": "2019-05-12T01:31:43.602Z"
 }
 ```
 
@@ -49,19 +50,19 @@ paid *boolean* | 是否已付款。
 status *string* | 支付状态，有pending, buyerPaid, sellerConfirmed, closed, cancelled, dispute。
 amount *number* | 以相应currency计算的支付金额。
 currency *string* | 货币代码，大写字母。
-price *number* | 兑换数字货币的价格，以quoteCurrency计价
-fee *number* | 手续费
-baseAmount *number* | 所换取的数字货币的数量
-baseCurrency *string* | 要换取的数字货币
-totalCost *number* | 用户直接支付，用于兑换数字货币的金额
-quoteCurrency *string* | 用户用于换取baseCurrency的货币
+price *number* | 兑换数字货币的价格，以quoteCurrency计价。
+fee *number* | 手续费。
+baseAmount *number* | 所换取的数字货币的数量。
+baseCurrency *string* | 要换取的数字货币。
+totalCost *number* | 用户直接支付，用于兑换数字货币的金额。
+quoteCurrency *string* | 用户用于换取baseCurrency的货币。
 externalOrderId *string* | 商户系统内部订单号。
 paymentPageUrl *string* | 调起的H5支付页面的URL。
-cbUrl *string* | Webhook 回调的接口地址
-redirectUrl *string* | 完成支付以后，跳转的页面
-paymentMethod *object* | 支付方式详情，详见PaymentMethods
-payerName *string* | 付款人的姓名，或其使用的支付方式的账户
-
+cbUrl *string* | Webhook 回调的接口地址。
+redirectUrl *string* | 完成支付以后，跳转的页面。
+paymentMethod *object* | 支付方式详情，详见PaymentMethods。
+payerName *string* | 付款人的姓名，或其使用的支付方式的账户。
+expiresAt *string* | 未支付的订单的过期时间戳，时区为UTC。
 ## 创建Charge对象
 
 > 请求示例
@@ -109,7 +110,8 @@ curl -X POST "https://matrix-content-s.ailingual.cn/api/v1/charges"
       "en": "Alipay",
       "zh": "支付宝"
     }
-  }
+  },
+  "expiresAt": "2019-05-12T01:31:43.602Z"
 }
 ```
 
@@ -176,7 +178,8 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
       "en": "Alipay",
       "zh": "支付宝"
     }
-  }
+  },
+  "expiresAt": "2019-05-12T01:31:43.602Z"
 }
 ```
 
@@ -235,7 +238,8 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
           "en": "Alipay",
           "zh": "支付宝"
         }
-      }
+      },
+      "expiresAt": "2019-05-12T01:31:43.602Z"
     }
   ]
 }
@@ -296,7 +300,8 @@ curl -X PUT "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
       "en": "Alipay",
       "zh": "支付宝"
     }
-  }
+  },
+  "expiresAt": "2019-05-12T01:31:43.602Z"
 }
 ```
 
@@ -350,7 +355,8 @@ status *REQUIRED string* | 这里值是buyerPaid。表示买家已经确认付�
         "en": "Alipay",
         "zh": "支付宝"
       }
-    }
+    },
+    "expiresAt": "2019-05-12T01:31:43.602Z"
   }
 }
 ```
