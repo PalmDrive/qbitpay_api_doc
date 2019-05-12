@@ -16,6 +16,7 @@
   "status": "paid",
   "type": "bankAccount",
   "arrivalDate": "2019-02-25T16:13:12.278Z",
+  "externalOrderId": "ba126aa385cd5580",
   "destination": {
     "id": "ba126aa385cd55808t8aeb0d",
     "object": "bankAccount",
@@ -63,6 +64,7 @@ description *string* | 备注描述
 status *string* | 交易状态，值可以是pending(下发请求发起), inTransit（在处理中）, paid（下发完成）, cancelled（取消）, failed (下发失败)
 type *string* | 下发的支付方式的类型，对应destination.type
 arrivalDate *string* | 下发完成，到账的时间
+externalOrderId *string* | 商户内部的订单号
 destination *object* | 支付方式，详见paymentMethod
 trade *object* | 相关联的交易，只有当创建payout时传的币种和结算币种不一致，才会有这个字段。其包含字段详见charge
 
@@ -76,6 +78,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/payouts"
   -d "amount=100"
   -d "currency=USD"
   -d "description=Payout memo"
+  -d "externalOrderId=ba126aa385cd5580"
   -d "destination={...}"
 ```
 
@@ -93,6 +96,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/payouts"
   "status": "pending",
   "type": "bankAccount",
   "arrivalDate": "2019-02-25T16:13:12.278Z",
+  "externalOrderId": "ba126aa385cd5580",
   "destination": {
     "id": "ba126aa385cd55808t8aeb0d",
     "object": "bankAccount",
@@ -150,6 +154,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/payouts/d55ba126aa385c808t8ae
   "status": "pending",
   "type": "bankAccount",
   "arrivalDate": "2019-02-25T16:13:12.278Z",
+  "externalOrderId": "ba126aa385cd5580",
   "destination": {
     "id": "ba126aa385cd55808t8aeb0d",
     "object": "bankAccount",
@@ -208,6 +213,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/payouts"
       "status": "pending",
       "type": "bankAccount",
       "arrivalDate": "2019-02-25T16:13:12.278Z",
+      "externalOrderId": "ba126aa385cd5580",
       "destination": {
         "id": "ba126aa385cd55808t8aeb0d",
         "object": "bankAccount",
@@ -269,6 +275,7 @@ status *optional string* | 状态，值可以是pending, inTransit, paid, failed
     "status": "pending",
     "type": "bankAccount",
     "arrivalDate": "2019-02-25T16:13:12.278Z",
+    "externalOrderId": "ba126aa385cd5580",
     "destination": {
       "id": "ba126aa385cd55808t8aeb0d",
       "object": "bankAccount",
