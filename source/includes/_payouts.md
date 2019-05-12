@@ -128,6 +128,7 @@ amount *REQUIRED number* | 下发总金额，单位取决于currency。该金额
 currency *REQUIRED string* | 币种
 destination *REQUIRED object* | 下发到的账户。详见paymentMethod的参数
 description *OPTIONAL string* | 备注描述
+externalOrderId *OPTIONAL string* | 商户内部的订单号
 
 ### 返回
 
