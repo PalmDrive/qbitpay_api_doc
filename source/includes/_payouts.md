@@ -125,10 +125,21 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/payouts"
 请求参数	|   描述
 -------- | --------
 amount *REQUIRED number* | 下发总金额，单位取决于currency。该金额没有扣除手续费。用户实际到账金额是扣除手续费的金额，可能会比该金额小。
-currency *REQUIRED string* | 币种
+currency *REQUIRED string* | 币种，是用户实际收到的金额币种
 destination *REQUIRED object* | 下发到的账户。详见paymentMethod的参数
 description *OPTIONAL string* | 备注描述
 externalOrderId *OPTIONAL string* | 商户内部的订单号
+
+不同的destination type, 需要的字段如下:
+
+type	|   必填字段
+-------- | --------
+bankAccount | payerName, bankAccountNum, bankName, type
+wallet | payerName, addr, type
+Alipay | payerName, bankAccountNum, type
+PayPal | payerName, bankAccountNum, type
+Coins.ph | payerName, bankAccountNum, type
+GCash | payerName, bankAccountNum, type
 
 ### 返回
 
