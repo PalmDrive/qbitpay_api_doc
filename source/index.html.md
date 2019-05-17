@@ -14,6 +14,7 @@ includes:
   - balances
   - balanceTransactions
   - payouts
+  - markets
   - webhooks
 
 search: false

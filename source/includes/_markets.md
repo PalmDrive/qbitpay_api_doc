@@ -16,7 +16,7 @@ Ticker对象记录当时交易对的价格
 
 属性	    |     描述
 --------  | -----------
-symbol *string* |
+symbol *string* | 交易对
 timestamp *number* | 毫秒时间戳
 ask *number* | 市卖价，对应自身是买家
 bid *number* | 市买价，对应自身是卖家
