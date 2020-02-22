@@ -1,8 +1,8 @@
 # Accounts
 
-## Account对象概述
+## Account
 
-> 对象示例
+> Object example
 
 ```json
 {
@@ -30,35 +30,35 @@
 }
 ```
 
-账户的费率和额度限制。有feeRates和limit字段。
+The fee rates and amount limitation are in the account object. 
 
-feeRates字段的值是一个对象，详情如下：
+The value of feeRates field is an object：
 
-属性	    |     描述
+field	    |     desc
 --------  | -----------
-payout *number* | 分发费率
-pay *number* | 入金收单的费率
-trade *number* | 交易费率
-withdrawToken *number* | 提币费率
+payout *number* | payout fee rate
+pay *number* | process payment fee rate
+trade *number* | trade fee rate
+withdrawToken *number* | withdraw fee rate
 
-limit字段的值是一个对象，详情如下：
+The value of limit field is an object:
 
-属性	    |     描述
+field	    |     desc
 --------  | -----------
-payout *object* | 分发的额度限制 { currency <string>, min <number> }
-pay *object* | 入金收单的额度限制 { currency <string>, min <number>, max <number> }
-withdrawToken *object* | 提币的额度限制 { currency <string>, min <number> }
+payout *object* | payout amount limit { currency <string>, min <number> }
+pay *object* | payment amount limit { currency <string>, min <number>, max <number> }
+withdrawToken *object* | withdraw crypo token amount limit { currency <string>, min <number> }
 
-## 查询Account对象
+## Query Account
 
-> 请求示例
+> Request example
 
 ```shell
 curl "https://matrix-content-s.ailingual.cn/api/v1/accounts/show"
   -u "my_api_key:"
 ```
 
-> 返回数据
+> Response
 
 ```json
 {
@@ -86,6 +86,6 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/accounts/show"
 }
 ```
 
-### 返回
+### Response
 
-返回目前账户的account 对象或者一个错误，详见 错误。
+Return the account object or an error.

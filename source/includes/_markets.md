@@ -1,8 +1,8 @@
 # Markets
 
-## Ticker对象概述
+## Ticker
 
-> 对象示例
+> Object example
 
 ```json
 {
@@ -12,23 +12,23 @@
 }
 ```
 
-Ticker对象记录当时交易对的价格
+Ticker shows the price of the trading pair. The price is valid in 30 seconds.
 
-属性	    |     描述
+field	    |     desc
 --------  | -----------
-symbol *string* | 交易对
-timestamp *number* | 毫秒时间戳
-ask *number* | 市卖价，对应自身是买家
-bid *number* | 市买价，对应自身是卖家
+symbol *string* | trading pair
+timestamp *number* | timestamp in milisecond
+ask *number* | ask price to buyer
+bid *number* | bid price to seller
 
-## 查询Ticker
+## Query Ticker
 
 ```shell
 curl "https://matrix-content-s.ailingual.cn/api/v1/markets/ticker?symbol=USDT/CNY&side=ask"
   -u "my_api_key:"
 ```
 
-> 返回数据
+> Response
 
 ```json
 {
@@ -38,13 +38,13 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/markets/ticker?symbol=USDT/CN
 }
 ```
 
-可以用此接口查询当前交易对的价格。
+Query the current price of the trading pair.
 
-请求参数	|    描述
+params	|   desc
 ---- | --------
-symbol *REQUIRED string* | 查询的交易对。
-side *REQUIRED string* | 查询的市买/卖价。值ask表示市卖价，bid表示市买价
+symbol *REQUIRED string* | trading pair
+side *REQUIRED string* | available values: ask, bid
 
-### 返回
+### Response
 
-返回一个 ticker 对象或者一个错误，详见 错误。
+Return a ticker object or an error.
