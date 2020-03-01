@@ -22,24 +22,26 @@ search: false
 # Introduction
 
 ```shell
-接口地址: https://matrix-content-s.ailingual.cn
+API endpoint: https://matrix-content-s.ailingual.cn
 ```
 
 QbitPay API is organzied round REST. The API has predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
 # Quickstart
 
-这里将介绍如何利用 Qbit Pay, 为商户提供支付服务。
+### It illustrates a sample flow of QbitPay's payout service:
 
-流程如下：
+1. Setup: Get the API key and set the webhook URL.
 
-1. 获得api key，设置 Webhook 回调接口。
+2. Query the account API to get the wallet address.
 
-2. 请求获得 access token (详见“认证”)。
+3. Send fund to the wallet address and listen to the webhook notification. A notification will be sent to the webhook URL when the number of transaction confirmations meets the requirement.
 
-3. 创建一个charge, 利用 charge.paymentPageUrl （详见“Charges - 创建Charge对象”）和 access token 调起支付H5页面。
+4. Query the market ticker API to get the current price
 
-4. 回调接口将会收到关于 charge 的事件推送，如 charge.succeeded。注意去验证签名（详见“Webhooks - 签名验证”）。
+5. Make request to the order API to create order. The order will be executed immediately and the corresponding balances are updated too.
+
+6. Make request to the payout API to creeate a payout. The payout is executed asynchronously. A notification will be sent to the webhook URL when the payout is sent successfully or failed.
 
 # Authentication
 
@@ -89,7 +91,7 @@ authentication_error:	Failure to properly authenticate yourself
 rate_limit_error: Too many requests hit the API too quickly
 ```
 
-Qbit Pay API 使用 HTTP 状态码 (status code) 来表明一个 API 请求的成功或失败状态。返回 HTTP 2XX 表明 API 请求成功。返回 HTTP 4XX 表明在请求 API 时提供了错误信息，例如参数缺失、参数错误、支付渠道错误等。返回 HTTP 5XX 表明 API 请求时，Qbit Pay 服务器发生了错误。
+QbitPay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with QbitPay's servers (these are rare).
 
 **Error object**
 
@@ -152,18 +154,20 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges?limit=3"
 }
 ```
 
-所有的 Qbit Pay 资源都可以被 list API 方法支持。这些 list API 方法拥有相同的数据结构。Qbit Pay 是基于 cursor 的分页机制，使用参数 starting_after 来决定列表从何处开始，使用参数 ending_before 来决定列表从何处结束。
+Most top-level API resources have support for bulk fetches via "list" API methods. These list API methods share a common structure.
+
+QbitPay utilizes cursor-based pagination via the starting_after and ending_before parameters. Both parameters take an existing object ID value (see below) and return objects in reverse chronological order. The ending_before parameter returns objects listed before the named object. The starting_after parameter returns objects listed after the named object. These parameters are mutually exclusive -- only one of starting_after orending_before may be used.
 
 params |	desc
 ------- | -------
-limit *optional* | 限制每页可以返回多少对象，限制范围是从 1~100 项，默认是 10 项。
-starting_after *optional* | 在分页时使用的指针，决定了列表的第一项从何处开始。假设你的一次请求返回列表的最后一项的 id 是 obj_end，你可以使用 starting_after = obj_end 去获取下一页。
-ending_before *optional* | 在分页时使用的指针，决定了列表的最末项在何处结束。假设你的一次请求返回列表的第一项的 id 是 obj_start，你可以使用 ending_before = obj_start 去获取上一页。
+limit *optional* | page size from 1 to 100. The default value is 10
+starting_after *optional* | the poiner in the pagination indicating from where the first item starts. For example, use the last item's id as the start_after to fetch the next page
+ending_before *optional* | the pointer in the pagination indicating from where the last item ends. For example, use the first item's id as the end_before to fetch the previous page
 
 **Response**
 
 field |	desc
 ------- | -------
-object *string* | value is "list"
-url *string* | 表明获取该列表所使用的 URL。
-data *array* | 包含一个由请求参数分页后的返回元素实体。
+object *string* | value is 'list'
+url *string* | The URL for accessing this list
+data *array* | An array containing the actual response elements, paginated by any request parameters

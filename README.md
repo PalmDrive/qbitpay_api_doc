@@ -72,7 +72,7 @@ Build:
 
 Upload:
 
-`scp -r build ubuntu@qbit-pay-docs.ailingual.cn:dev/qbit_pay_docs`
+`scp -r build ubuntu@qbit-pay-docs.ailingual.cn:dev/qbitpay_api_doc`
 
 ### Note on JavaScript Runtime
 

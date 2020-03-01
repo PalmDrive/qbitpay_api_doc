@@ -237,9 +237,9 @@ Return the list of payouts sorted by createdAt in the descending order
 
 params |	desc
 ------- | -------
-limit *optional int* | he page size from 1 to 100. The default value is 10
+limit *optional int* | page size from 1 to 100. The default value is 10
 starting_after *optional string* | the poiner in the pagination indicating from where the first item starts. For example, use the last item's id as the start_after to fetch the next page
-ending_before *optional string* | he pointer in the pagination indicating from where the last item ends. For example, use the first item's id as the end_before to fetch the previous page
+ending_before *optional string* | the pointer in the pagination indicating from where the last item ends. For example, use the first item's id as the end_before to fetch the previous page
 destination *optional string* | filtered by the associated payment method id
 status *optional string* | filtereed by status, available values: pending, inTransit, paid, failed, cancelled
 
