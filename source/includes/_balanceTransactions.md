@@ -43,7 +43,7 @@ description *string* | description
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/balanceTransactions/55ba126aa38a5c808t8deb0d"
+curl "https://matrix-content-s.ailingual.cn/api/v1/balanceTransactions/55ba126aa38a5c808t8deb0d" \
   -u "my_api_key:"
 ```
 
@@ -81,7 +81,7 @@ Return the balanceTransaction object or an error object.
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/balanceTransactions"
+curl "https://matrix-content-s.ailingual.cn/api/v1/balanceTransactions?limit=25" \
   -u "my_api_key:"
 ```
 

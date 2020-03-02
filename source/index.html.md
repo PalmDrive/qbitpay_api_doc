@@ -8,12 +8,13 @@ toc_footers:
   - Made with love QbitPay
 
 includes:
-  - paymentMethods
   - accounts
   - balances
   - balanceTransactions
-  - payouts
   - markets
+  - orders
+  - paymentMethods
+  - payouts
   - webhooks
 
 search: false
@@ -23,13 +24,17 @@ search: false
 
 ```shell
 API endpoint: https://matrix-content-s.ailingual.cn
+
+Headers: Content-Type: application/json
 ```
 
 QbitPay API is organzied round REST. The API has predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
+The api endpoint and the headers are shown in the left.
+
 # Quickstart
 
-### It illustrates a sample flow of QbitPay's payout service:
+It illustrates a sample flow of QbitPay's payout service:
 
 1. Setup: Get the API key and set the webhook URL.
 
@@ -156,7 +161,7 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/charges?limit=3"
 
 Most top-level API resources have support for bulk fetches via "list" API methods. These list API methods share a common structure.
 
-QbitPay utilizes cursor-based pagination via the starting_after and ending_before parameters. Both parameters take an existing object ID value (see below) and return objects in reverse chronological order. The ending_before parameter returns objects listed before the named object. The starting_after parameter returns objects listed after the named object. These parameters are mutually exclusive -- only one of starting_after orending_before may be used.
+QbitPay utilizes cursor-based pagination via the starting_after and ending_before parameters. Both parameters take an existing object ID value (see below) and return objects in reverse chronological order. The ending_before parameter returns objects listed before the named object. The starting_after parameter returns objects listed after the named object. These parameters are mutually exclusive -- only one of starting_after or ending_before may be used.
 
 params |	desc
 ------- | -------

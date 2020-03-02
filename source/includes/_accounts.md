@@ -26,11 +26,24 @@
         "currency": "USDT",
         "min": 200
     }
-  }
+  },
+  "wallets": [
+    {
+      "currency": "USDT",
+      "addr": "0x31C27642169B61ceD340Ba99643CC3EAd729321F",
+    }
+  ]
 }
 ```
 
-The fee rates and amount limitation are in the account object. 
+The wallets, fee rates and amount limitation are in the account object. 
+
+The value of wallets field is an array. The object in the array has the fields:
+
+field	    |     desc
+--------  | -----------
+currency *string* | the wallet currency
+addr *string* | the wallet address
 
 The value of feeRates field is an object：
 
@@ -82,7 +95,13 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/accounts/show"
         "currency": "USDT",
         "min": 200
     }
-  }
+  },
+  "wallets": [
+    {
+      "currency": "USDT",
+      "addr": "0x31C27642169B61ceD340Ba99643CC3EAd729321F",
+    }
+  ]
 }
 ```
 
