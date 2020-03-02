@@ -24,7 +24,7 @@ bid *number* | bid price to seller
 ## Query Ticker
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/markets/ticker?symbol=USDT/CNY&side=ask"
+curl "https://api.qbitnetwork.com/api/v1/markets/ticker?symbol=USDT/CNY&side=ask"
   -u "my_api_key:"
 ```
 

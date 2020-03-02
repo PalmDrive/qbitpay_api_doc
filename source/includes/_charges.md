@@ -68,7 +68,7 @@ expiresAt *string* | 未支付的订单的过期时间戳，时区为UTC。
 > 请求示例
 
 ```shell
-curl -X POST "https://matrix-content-s.ailingual.cn/api/v1/charges"
+curl -X POST "https://api.qbitnetwork.com/api/v1/charges"
   -u "my_api_key:"
   -d "amount=100"
   -d "currency=USD"
@@ -142,7 +142,7 @@ payerName *string* | 付款人的姓名，或其使用的支付方式的账户
 > 请求示例
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
+curl "https://api.qbitnetwork.com/api/v1/charges/ifDOu5uTSTy9i"
   -u "my_api_key:"
 ```
 
@@ -198,7 +198,7 @@ CHARGE_ID *REQUIRED string* | 查询的 charge 对象 id。
 > 请求示例
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/charges"
+curl "https://api.qbitnetwork.com/api/v1/charges"
   -u "my_api_key:"
 ```
 
@@ -263,7 +263,7 @@ externalOrderId *optional string* | 商户系统内部订单号
 > 请求示例
 
 ```shell
-curl -X PUT "https://matrix-content-s.ailingual.cn/api/v1/charges/ifDOu5uTSTy9i"
+curl -X PUT "https://api.qbitnetwork.com/api/v1/charges/ifDOu5uTSTy9i"
   -u "my_api_key:"
   -d "status=buyerPaid"
 ```

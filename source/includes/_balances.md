@@ -29,7 +29,7 @@ currency *string* | the balance currency
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/balances/show"
+curl "https://api.qbitnetwork.com/api/v1/balances/show"
   -u "my_api_key:"
 ```
 

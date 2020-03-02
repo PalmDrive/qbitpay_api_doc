@@ -23,7 +23,7 @@ search: false
 # Introduction
 
 ```shell
-API endpoint: https://matrix-content-s.ailingual.cn
+API endpoint: https://api.qbitnetwork.com
 
 Headers: Content-Type: application/json
 ```
@@ -53,14 +53,14 @@ It illustrates a sample flow of QbitPay's payout service:
 > Request example:
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn"
+curl "https://api.qbitnetwork.com"
   -u "my_api_key:"
 
 Please change my_api_key to your API Key。
 
 Fetch access token:
 
-curl "https://matrix-content-s.ailingual.cn/api/v1/accessToken"
+curl "https://api.qbitnetwork.com/api/v1/accessToken"
   -u "my_api_key:"
 ```
 
@@ -111,7 +111,7 @@ detail optional | more details
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/charges?limit=3"
+curl "https://api.qbitnetwork.com/api/v1/charges?limit=3"
   -u "my_api_key:"
 ```
 

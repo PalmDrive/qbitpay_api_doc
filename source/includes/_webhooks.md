@@ -134,7 +134,7 @@ Second, append api key to stringA and get stringSignTemp. MD5 Encode stringSignT
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/events/test?cbUrl=https://api.blockscape.co",
+curl "https://api.qbitnetwork.com/api/v1/events/test?cbUrl=https://api.blockscape.co",
   -u "my_api_key:"
 ```
 
@@ -181,6 +181,6 @@ curl "https://matrix-content-s.ailingual.cn/api/v1/events/test?cbUrl=https://api
 }
 ```
 
-QbitPay provides API to debug Webhooks。 Make request to `https://matrix-content-s.ailingual.cn/api/v1/events/test` and get an event notification for test， which livemode is false. Please notes that it will not retry if the server doesn't receive 2xx response. The callback URL cbUrl could be also included in the params.
+QbitPay provides API to debug Webhooks。 Make request to `https://api.qbitnetwork.com/api/v1/events/test` and get an event notification for test， which livemode is false. Please notes that it will not retry if the server doesn't receive 2xx response. The callback URL cbUrl could be also included in the params.
 
 The event notificaiton will be pushed with POST method to the URL configured by the developer signed with the api key.

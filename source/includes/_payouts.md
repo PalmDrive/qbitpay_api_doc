@@ -60,7 +60,7 @@ destination *object* | payment method, see details in paymentMethod
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/payouts"
+curl "https://api.qbitnetwork.com/api/v1/payouts"
   -X POST \
   -u "my_api_key:" \
   -H "Content-Type: application/json" \
@@ -130,7 +130,7 @@ Return a payout object or an error.
 ## Query Payout
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/payouts/d55ba126aa385c808t8aeb0d" \
+curl "https://api.qbitnetwork.com/api/v1/payouts/d55ba126aa385c808t8aeb0d" \
   -u "my_api_key:"
 ```
 
@@ -185,7 +185,7 @@ Return a payout object or an error.
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/payouts" \
+curl "https://api.qbitnetwork.com/api/v1/payouts" \
   -u "my_api_key:"
 ```
 

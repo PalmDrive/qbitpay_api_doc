@@ -67,7 +67,7 @@ withdrawToken *object* | withdraw crypo token amount limit { currency <string>, 
 > Request example
 
 ```shell
-curl "https://matrix-content-s.ailingual.cn/api/v1/accounts/show"
+curl "https://api.qbitnetwork.com/api/v1/accounts/show"
   -u "my_api_key:"
 ```
 
